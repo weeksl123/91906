@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Account</title>
+{% endblock %}
+
+{% block body %}
+    <h1>Account</h1>
+    <h2>Logged in as {{ session['username'] }}</h2>
+    {% if session['username'] == "Admin" %}
+        <h2>Admin</h2>
+    {% else %}
+        <h2>User</h2>
+    {% endif %}
+
+{% endblock %}

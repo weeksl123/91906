@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Menu</title>
+{% endblock %}
+
+{% block body %}
+    <div id="menu">
+        <h1>Our Menu</h1>
+        <!--Savory menu items-->
+        <h2>Savory</h2>
+        <div class="menu_row">
+            <div class="menu_column"><img src="{{ url_for('static', filename='images/Vader-balls.jpg')}}" alt="Cheese filled balls"></div>
+            <div class="menu_column">
+                <div class="column_txt">
+                    <h1>Darth Vader Balls</h1><br>
+                    <button type="button" onclick="AddBall">Add to order</button>
+                </div>
+            </div>
+        </div>
+        <div class="menu_row">
+            <div class="menu_column"><img src="{{ url_for('static', filename='images/ribs.jpeg')}}" alt="Ribs on a barbecue"></div>
+            <div class="menu_column">
+                <div class="column_txt">
+                    <h1>Chewbaka</h1><br>
+                    <button type="button" onclick="AddRib">Add to order</button>
+                </div>
+            </div>
+        </div>
+        <div class="menu_row">
+            <div class="menu_column"><img src="{{ url_for('static', filename='images/stew.jpg')}}" alt="Stew with potato, onion and carrot"></div>
+            <div class="menu_column">
+                <div class="column_txt">
+                    <h1>4 lom cooked stews</h1><br>
+                    <button type="button" onclick="AddStew">Add to order</button>
+                </div>
+            </div>
+        </div>
+        <div class="menu_row">
+            <div class="menu_column"><img src="{{ url_for('static', filename='images/beef-burger.jpg')}}" alt="Burger with mammoth meat and veggies"></div>
+            <div class="menu_column">
+                <div class="column_txt">
+                    <h1>Bantha Burgers</h1><br>
+                    <button type="button" onclick="AddBurger">Add to order</button>
+                </div>
+            </div>
+        </div>
+        <div class="menu_row">
+            <div class="menu_column"><img src="{{ url_for('static', filename='images/Chewys-Chili.png')}}" alt="Pork based chili with chunks of quartered tomato"></div>
+            <div class="menu_column">
+                <div class="column_txt">
+                    <h1>Chewy's Chili</h1><br>
+                    <button type="button" onclick="AddChili">Add to order</button>
+                </div>
+            </div>
+        </div>
+        <div class="menu_row">
+            <div class="menu_column"><img src="{{ url_for('static', filename='images/Galactic-Goulash.png')}}" alt="Al dente pasta served with smaller chunks of New Zealand lamb"></div>
+            <div class="menu_column">
+                <div class="column_txt">
+                    <h1>Galactic Goulash</h1><br>
+                    <button type="button" onclick="AddGoulash">Add to order</button>
+                </div>
+            </div>
+        </div>
+        <!--Sweet menu items-->
+        <h2 class="title">Desserts</h2>
+        <div class="menu_row">
+            <div class="menu_column"><img src="{{ url_for('static', filename='images/Banana-Waffles.jpg')}}" alt="Buttermilk gram cracker waffles with graham crackers, bananas and caramelized honey"></div>
+            <div class="menu_column">
+                <div class="column_txt">
+                    <h1>Wookiee Waffles</h1><br>	
+                    <button onclick="AddWaffle">Add to order</button>
+                </div>
+            </div>
+        </div>
+        <div class="menu_row">
+            <div class="menu_column"><img src="{{ url_for('static', filename='images/cannoli.jpg')}}" alt="Cannoli with fruit and chocolate"></div>
+            <div class="menu_column">
+                <div class="column_txt">
+                    <h1>Only one cannoli</h1><br>
+                    <button type="button" onclick="AddCannoli">Add to order</button>
+                </div>
+            </div>
+        </div>
+        <!--Drink menu items-->
+        <h2>Drinks</h2>
+        <div class="menu_row">
+            <div class="menu_column"><img src="{{ url_for('static', filename='images/tequila.png')}}" alt="Mix of tequila and ginger beer with a rim of cinnamon and sugar"></div>
+            <div class="menu_column">
+                <div class="column_txt">
+                    <h1>Shot oh sister lovin'</h1><br>
+                    <button type="button" onclick="AddTequila">Add to order</button>
+                </div>
+            </div>
+        </div>
+        <div class="menu_row">
+            <div class="menu_column"><img src="{{ url_for('static', filename='images/hot-chocolate.png')}}" alt="Near-expired instant hot chocolate"></div>
+            <div class="menu_column">
+                <div class="column_txt">
+                    <h1>Hot Chocolate</h1><br>
+                    <button type="button" onclick="AddChocolate">Add to order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'signin_base.html' %}
+
+{% block title %}
+    <title>Sign up</title>
+{% endblock %}
+
+{% block heading%}
+    <h2>Sign up</h2>
+{% endblock %}
+
+{% block form %}
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+{% endblock %}
+
+{% block form1 %}
+    <div id="message" style="display: none;">
+        <p id="letter" class="invalid">Lowercase letter</p>
+        <p id="capital" class="invalid">Uppercase letter</p>
+        <p id="number" class="invalid">Number</p>
+        <p id="length" class="invalid">Minimum 8 characters</p>
+    </div>
+    <label for="con-password">Confirm Password:</label><br>
+    <input type="password" id="con-password" name="con-password" required><br><br>
+{% endblock %}
+
+{% block switch %}
+    <p>Already have an account? <a href="{{ url_for('sign_in') }}">Sign in!</a></p>
+{% endblock %}

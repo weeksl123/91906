@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <head>
+        <!-- Metadata about the document -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+        <link rel="script" href="{{ url_for('static', filename='js/script.js')}}">
+        {% block title %}{% endblock %}
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Food ordering system</h1>
+            </header>
+            <nav>
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('menu') }}">Menu</a>
+                <a href="{{ url_for('order') }}">Order</a>
+                {% if session['logged_in'] %}
+                    <a id="account_button" href="{{ url_for('account') }}">Account</a>
+                    <a id="logout_button" href="{{ url_for('logout') }}">Logout</a>
+                {% else %}
+                    <a id="signin_button" href="{{ url_for('sign_in') }}">Sign in</a>
+                {% endif %}
+            </nav>
+            {% block body %}{% endblock %}
+        </main>
+    </body>
+    <footer>
+        {% block footer %}{% endblock %}
+    </footer>
+</html>
