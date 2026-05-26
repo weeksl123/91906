@@ -3,7 +3,7 @@ import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
-DATABASE = './test1.db'
+DATABASE = './test2.db'
 app.config['SECRET_KEY'] = "yfgh8756"
 
 def get_db():
@@ -42,12 +42,12 @@ def sign_in():
         username = request.form.get("username")
         password = request.form.get("password")
         print(username, password)
-        cur.execute("SELECT username, hash FROM users WHERE username = ?", (username,))
+        cur.execute("SELECT username, hash, user_status FROM users WHERE username = ?", (username,))
         result = cur.fetchone()
         close_connection()
         print(result)
         if result:
-            USERNAME, PASSWORD = result
+            USERNAME, PASSWORD, USER_STATUS = result
         else:
             return render_template("sign_in.html",
                                       error="No account with that username")
@@ -55,6 +55,7 @@ def sign_in():
         #Check credentials
         if check_password_hash(PASSWORD, password):
             session['username'] = USERNAME
+            session['user_status'] = USER_STATUS
             return redirect(url_for("welcome"))
         else:
             return render_template("sign_in.html",
@@ -91,7 +92,7 @@ def sign_up():
             if u_result == None and e_result == None:  
                 print(username, ", ", password, ", ", con_password)
                 hash = generate_password_hash(password, method='pbkdf2:sha256', salt_length=16)
-                cur.execute("INSERT INTO users (username, email, hash) VALUES (?, ?, ?)", (username, email, hash,))
+                cur.execute("INSERT INTO users (username, email, hash, user_status) VALUES (?, ?, ?, ?)", (username, email, hash, 1))
                 close_connection()
                 flash("Sign Up Successful", "Success")
                 return redirect(url_for("sign_in"))      
